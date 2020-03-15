@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import os
+import requests
 import pandas as pd
 import pymysql
 
@@ -12,8 +13,13 @@ def main():
 	database = os.getenv('DATABASE', "")
 	table = os.getenv('TABLE', "")
 
-	''' READ XLSX '''
+	''' DOWNLOAD & READ XLSX FILE '''
 	file_name = './data/Financial Sample.xlsx'
+
+	url = 'https://go.microsoft.com/fwlink/?LinkID=521962'
+	downloaded_file = requests.get(url)
+	open(file_name, 'wb').write(downloaded_file.content)
+
 	xlsx_file = pd.ExcelFile(file_name)
 
 	# Create dictionary to store data by sheet

@@ -16,6 +16,7 @@ pandas==0.25.3
 xlrd==1.2.0
 python-dotenv==0.12.0
 PyMySQL==0.9.3
+requests==2.23.0
 ```
 
 ### Installing
